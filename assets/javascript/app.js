@@ -1,7 +1,35 @@
 //create arrays with questions, answer options, and answers
-var questions = [];
-var answerOptions = [];
-var answers = [];
+var questions = ["Which movie was released first?", "What is considered to be the first slasher movie?", 
+                  "What is the name of the Demon who possesses Regan in the Exorcist (1973)?", 
+                  "How many deaths occurred in the original Scream (1996)?", 
+                  "Which if the following did Wes Craven NOT direct?", 
+                  "Which iconic horror movie killer went to outer space?", 
+                  "Which of the following is NOT based off of a Stephen King Novel?", 
+                  "What was the name of Jamie Lee Curtis’s character in Halloween (1978)?", 
+                  "What Serial Killer is the FBI trying to catch in The Silence of the Lambs (1991)?", 
+                  "Which horror movie killer has the highest total body count?"];
+
+var answerOptions = [["A. Friday the 13th", "B. Nightmare on Elm Street","C. Halloween", "D.  Carrie"], 
+                      ["A.  Peeping Tom", "B. Psycho", "C.  Black Sunday", "D.  Eyes Without a Face"], 
+                      ["A.  Beelzebub", "B. Pazuzu", "C.  Varik", "D. Lucifer"], 
+                      ["A.  5", "B. 6", "C. 7", "D. 8"], 
+                      ["A.  Rosemary’s Baby (1968)", "B.  The Last House on the Left (1972)", "c. The Hills Have Eyes (1977)", "d.  A Nightmare on Elm Street (1984)"], 
+                      ["A.  Freddy Krueger", "B.  Jason Voorhees", "C.  Michael Myers", "D. Norman Bates"], 
+                      ["A.  The Shining (1980)", "B.  The Dead Zone (1983)", "C.  Manhunter (1986)", "D.  Thinner (1996)"], 
+                      ["A.  Elizabeth Solly", "B. Kim Hammond", "C. Judith Myers", "D.  Laurie Strode"], 
+                      ["A.  Buffalo Bill", "B.  The Tooth Fairy", "C. Hannibal Lecter", "D. Red Dragon"], 
+                      ["A.  Michael Myers", "B. Leatherface", "C. Freddy Krueger", "D.  Jason Voorhees"]];
+
+var answers = ["Correct Answer: D. Carrie was released in 1976.", 
+              "Correct Answer: A. While Peeping Tom (1960) is often referred to as the first slasher film, it is also the first movie to put the audience in the killer’s point of view.", 
+              "Correct Answer: B. Pazuzu is a demon known in Assyrian and Babylonian mythology.", 
+              "Correct Answer: C. Deaths (in order) included Steve Orth, Casey Becker, Principal Arthur Himbry, Tatum Riley, Kenny Jones, Stu, and Billy.", 
+              "Correct Answer: A. Rosemary’s Baby (1968) was directed by Roman Polanski.", 
+              "Correct Answer: B. The movie Jason X (2001) takes place on a spaceship in the 25th century.", 
+              "Correct Answer: C. Manhunter (1986) was based off of the book Red Dragon, written by Thomas Harris.", 
+              "Correct Answer: D. Elizabeth Solly and Kim Hammond were the names of the characters that Jamie Lee Curtis plays in The Fog (1980) and Prom Night (1980) respectively. Judith Myers is the name of the older sister that Michael Myers murders in the beginning of the movie.", 
+              "Correct Answer: A. Bill was the serial killer that skinned his victims to make a suit for himself in The Silence of the Lambs. FBI agent Clarice Starling went to Hannibal Lecter for insight on the case in the beginning of the movie.", 
+              "Correct Answer: D. The character of Jason Voorhees has the highest body count with 158 total kills throughout his movies."];
 
 //counters for correct, incorrect, and unanswered questions
 var correct = 0;
