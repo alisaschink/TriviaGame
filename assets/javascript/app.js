@@ -10,6 +10,21 @@ var unanswered = 0;
 var time = 30;
 var counter;
 
+//button to start the game
+$("#startGame").html("<button>" + "Start the Game!" + "</button>");
+
+//instructions for the game
+$("#instructions").html("<p>" + "You will have 30 seconds to answer each question. There are 10 questions in total." + "</p>");
+
+$("#startGame").on("click", function() {
+      $("#startGame").empty();
+      $("#instructions").empty();
+
+      game();
+
+    });
+
+//function to start the game
 var game = function() {
   //generate a random number to select question and matching answer
   var randomNumber = Math.floor(Math.random()*questions.length);
@@ -78,5 +93,5 @@ var game = function() {
 
 };
 
-game();
+
 
