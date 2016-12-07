@@ -61,6 +61,7 @@ var game = function() {
 
   //shows selected question
   $("#questionDiv").html("<p>" + questions[randomNumber] + "</p>");
+  var correctAnswer = answers[randomNumber];
 
   //show selected answer options
    //creates buttons for selected answer options
@@ -84,10 +85,20 @@ var game = function() {
   };
 
   //onclick function for userGuess
+
   $(".answerButton").on("click", function() {
     // Sets buttonValue to the data value for each button
     var buttonValue = ($(this).data("value"));
+
       console.log(buttonValue);
+      //increases correct counter if buttonValue = correctAnswer
+      if (buttonValue === correctAnswer) {
+        correct++
+        console.log("that's correct!");
+      } else {
+        incorrect++
+        console.log("incorrect!");
+      };
 
     });
 
@@ -129,7 +140,7 @@ var game = function() {
   //executes timer
   run();
 
-//increases correct counter if userGuess = correctAnswer
+
 //congradulate user if correct answer guessed
 
 //increases incorrect counter if userGuess != correctAnswer
