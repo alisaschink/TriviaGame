@@ -10,17 +10,19 @@ var questions = ["Which movie was released first?", "What is considered to be th
                   "Which horror movie killer has the highest total body count?"];
 
 var answerOptions = [["A. Friday the 13th", "B. Nightmare on Elm Street","C. Halloween", "D.  Carrie"], 
-                      ["A.  Peeping Tom", "B. Psycho", "C.  Black Sunday", "D.  Eyes Without a Face"], 
+                      ["A.  Peeping Tom", "B.  Psycho", "C.  Black Sunday", "D.  Eyes Without a Face"], 
                       ["A.  Beelzebub", "B. Pazuzu", "C.  Varik", "D. Lucifer"], 
                       ["A.  5", "B. 6", "C. 7", "D. 8"], 
-                      ["A.  Rosemary’s Baby (1968)", "B.  The Last House on the Left (1972)", "c. The Hills Have Eyes (1977)", "d.  A Nightmare on Elm Street (1984)"], 
+                      ["A.  Rosemarys Baby (1968)", "B.  The Last House on the Left (1972)", "c. The Hills Have Eyes (1977)", "d.  A Nightmare on Elm Street (1984)"], 
                       ["A.  Freddy Krueger", "B.  Jason Voorhees", "C.  Michael Myers", "D. Norman Bates"], 
                       ["A.  The Shining (1980)", "B.  The Dead Zone (1983)", "C.  Manhunter (1986)", "D.  Thinner (1996)"], 
                       ["A.  Elizabeth Solly", "B. Kim Hammond", "C. Judith Myers", "D.  Laurie Strode"], 
                       ["A.  Buffalo Bill", "B.  The Tooth Fairy", "C. Hannibal Lecter", "D. Red Dragon"], 
                       ["A.  Michael Myers", "B. Leatherface", "C. Freddy Krueger", "D.  Jason Voorhees"]];
 
-var answers = ["Correct Answer: D. Carrie was released in 1976.", 
+var answers = ["D", "A", "B", "C", "A", "B", "C", "D", "A", "D"];
+
+var explanations = ["Correct Answer: D. Carrie was released in 1976.", 
               "Correct Answer: A. While Peeping Tom (1960) is often referred to as the first slasher film, it is also the first movie to put the audience in the killer’s point of view.", 
               "Correct Answer: B. Pazuzu is a demon known in Assyrian and Babylonian mythology.", 
               "Correct Answer: C. Deaths (in order) included Steve Orth, Casey Becker, Principal Arthur Himbry, Tatum Riley, Kenny Jones, Stu, and Billy.", 
@@ -58,8 +60,27 @@ var game = function() {
   var randomNumber = Math.floor(Math.random()*questions.length);
 
   //shows selected question
+  $("#questionDiv").html("<p>" + questions[randomNumber] + "</p>");
 
   //show selected answer options
+   //creates variable for selected answer options
+  var answerArray = answerOptions[randomNumber];
+ 
+  var A = $("<button>").addClass("answerButton");
+  var B = $("<button>").addClass("answerButton");
+  var C = $("<button>").addClass("answerButton");
+  var D = $("<button>").addClass("answerButton");
+
+  var letters = [A, B, C, D];
+  //for loop to create buttons for each multiple choice answer.
+  for (var i = 0; i < 4; i++) {
+
+    var options = $(letters[i]).attr("data-value", answerArray[i]).html("<div>" + answerArray[i] + "</div>");
+    //each answer option will get added to the page.
+
+    $("#answerDiv").append(options);
+     
+  };
 
   //onclick function for userGuess
 
@@ -120,6 +141,5 @@ var game = function() {
 //onclick function to restart game
 
 };
-
 
 
