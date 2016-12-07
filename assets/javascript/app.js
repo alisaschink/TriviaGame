@@ -63,7 +63,7 @@ var game = function() {
   $("#questionDiv").html("<p>" + questions[randomNumber] + "</p>");
 
   //show selected answer options
-   //creates variable for selected answer options
+   //creates buttons for selected answer options
   var answerArray = answerOptions[randomNumber];
  
   var A = $("<button>").addClass("answerButton");
@@ -71,11 +71,12 @@ var game = function() {
   var C = $("<button>").addClass("answerButton");
   var D = $("<button>").addClass("answerButton");
 
-  var letters = [A, B, C, D];
+  var buttons = [A, B, C, D];
+  var letters = ["A", "B", "C", "D"];
   //for loop to create buttons for each multiple choice answer.
   for (var i = 0; i < 4; i++) {
 
-    var options = $(letters[i]).attr("data-value", answerArray[i]).html("<div>" + answerArray[i] + "</div>");
+    var options = $(buttons[i]).attr("data-value", letters[i]).html("<h4>" + answerArray[i] + "</h4>");
     //each answer option will get added to the page.
 
     $("#answerDiv").append(options);
@@ -83,6 +84,12 @@ var game = function() {
   };
 
   //onclick function for userGuess
+  $(".answerButton").on("click", function() {
+    // Sets buttonValue to the data value for each button
+    var buttonValue = ($(this).data("value"));
+      console.log(buttonValue);
+
+    });
 
   //question timer
   $("#timer").html("<h2>" + time + " " + "Seconds" + "</h2>");
