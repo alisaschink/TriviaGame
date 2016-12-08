@@ -38,7 +38,9 @@ var correct = 0;
 var incorrect = 0;
 var unanswered = 0;
 var time = 30;
-var counter;
+var timeCounter;
+var questionNumber = 0
+var questionCounter;
 
 //button to start the game
 $("#startGame").html("<button>" + "Start the Game!" + "</button>");
@@ -56,16 +58,17 @@ $("#startGame").on("click", function() {
 
 //function to start the game
 var game = function() {
-  //generate a random number to select question and matching answer
-  var randomNumber = Math.floor(Math.random()*questions.length);
+  
+  // //generate a random number to select question and matching answer
+  // var randomNumber = Math.floor(Math.random()*questions.length);
 
   //shows selected question
-  $("#questionDiv").html("<p>" + questions[randomNumber] + "</p>");
-  var correctAnswer = answers[randomNumber];
+  $("#questionDiv").html("<p>" + questions[questionNumber] + "</p>");
+  var correctAnswer = answers[questionNumber];
 
   //show selected answer options
    //creates buttons for selected answer options
-  var answerArray = answerOptions[randomNumber];
+  var answerArray = answerOptions[questionNumber];
  
   var A = $("<button>").addClass("answerButton");
   var B = $("<button>").addClass("answerButton");
@@ -94,10 +97,18 @@ var game = function() {
       //increases correct counter if buttonValue = correctAnswer
       if (buttonValue === correctAnswer) {
         correct++
+        //congradulate user if correct answer guessed
         console.log("that's correct!");
+        console.log(explanations[questionNumber]);
+        questionNumber++
+        setInterval(reset, 3000);
       } else {
+        //increases incorrect counter if userGuess != correctAnswer
         incorrect++
         console.log("incorrect!");
+        console.log(explanations[questionNumber]);
+        questionNumber++
+        setInterval(reset, 3000);
       };
 
     });
@@ -107,7 +118,7 @@ var game = function() {
 
   //Run function to set interval
   function run() {
-    counter = setInterval(decrement, 1000);
+    timeCounter = setInterval(decrement, 1000);
     };
 
   //The decrement function.
@@ -123,31 +134,44 @@ var game = function() {
   //Once time hits zero run the stop function.
   if (time === 0) {
 
-    stop();
+    stopTime();
+
+    //increases unanswered counter if timer runs out
+    unanswered++
+    console.log(explanations[questionNumber]);
 
     //Alert the user that time is up.
-    alert("Time Up!");
+    console.log("Time Up!");
+    questionNumber++
+    setInterval(reset, 3000);
+
+
     };
   };
 
   //The stop function
-  function stop() {
+  function stopTime() {
 
   //Clears our "counter" interval.
-    clearInterval(counter);
+    clearInterval(timeCounter);
   };
 
   //executes timer
   run();
 
+//reset function to set interval
+  function reset() {
+    $("#questionDiv").empty();
+    $("#answerDiv").empty();
+    stopTime();
+    $("#timer").empty();
+    time = 30;
+    game();
+    };
+  //resets game questions/answers after 3 seconds
+  // questionCounter = setInterval(reset, 3000);
 
-//congradulate user if correct answer guessed
 
-//increases incorrect counter if userGuess != correctAnswer
-
-
-//increases unanswered counter if timer runs out
-//states that time has run out
 
 //shows correct answer and image when answer given or timer runs out
 
