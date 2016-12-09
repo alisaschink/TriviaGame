@@ -30,8 +30,22 @@ var explanations = ["Correct Answer: D. Carrie was released in 1976.",
               "Correct Answer: B. The movie Jason X (2001) takes place on a spaceship in the 25th century.", 
               "Correct Answer: C. Manhunter (1986) was based off of the book Red Dragon, written by Thomas Harris.", 
               "Correct Answer: D. Elizabeth Solly and Kim Hammond were the names of the characters that Jamie Lee Curtis plays in The Fog (1980) and Prom Night (1980) respectively. Judith Myers is the name of the older sister that Michael Myers murders in the beginning of the movie.", 
-              "Correct Answer: A. Bill was the serial killer that skinned his victims to make a suit for himself in The Silence of the Lambs. FBI agent Clarice Starling went to Hannibal Lecter for insight on the case in the beginning of the movie.", 
+              "Correct Answer: A. Buffalo Bill was the serial killer that skinned his victims to make a suit for himself in The Silence of the Lambs. FBI agent Clarice Starling went to Hannibal Lecter for insight on the case in the beginning of the movie.", 
               "Correct Answer: D. The character of Jason Voorhees has the highest body count with 158 total kills throughout his movies."];
+
+//images for when answer is shown
+var img1 = $("<img>").attr("src", "assets/images/carrie.jpg");
+var img2 = $("<img>").attr("src", "assets/images/peeping_tom.jpg");
+var img3 = $("<img>").attr("src", "assets/images/regan.jpg");
+var img4 = $("<img>").attr("src", "assets/images/scream.jpg");
+var img5 = $("<img>").attr("src", "assets/images/rosemarys_baby.jpg");
+var img6 = $("<img>").attr("src", "assets/images/jasonX.jpg");
+var img7 = $("<img>").attr("src", "assets/images/manhunter.jpg");
+var img8 = $("<img>").attr("src", "assets/images/laurie.jpg");
+var img9 = $("<img>").attr("src", "assets/images/buffalo_bill.jpg");
+var img10 = $("<img>").attr("src", "assets/images/jason.jpg");
+
+var images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
 
 //declare variables
 var correct = 0;
@@ -96,6 +110,8 @@ var game = function() {
     unanswered++
     //shows correct answer
     $("#answerDiv").append("<p>" + explanations[questionNumber] + "</p>");
+    //show answer image
+    $("#answerDiv").append(images[questionNumber]);
 
     //tells the user that time is up.
     $("#questionDiv").html("<h3>" + "Time's up!" + "</h3>");
@@ -173,6 +189,8 @@ var game = function() {
         $("#questionDiv").html("<h3>" + "That's Correct!" + "</h3>");
         //shows correct answer
         $("#answerDiv").append("<p>" + explanations[questionNumber] + "</p>");
+        //show answer image
+        $("#answerDiv").append(images[questionNumber]);
         questionNumber++
         //resets game questions/answers after 5 seconds
         questionSelector();
@@ -183,6 +201,8 @@ var game = function() {
         $("#questionDiv").html("<h3>" + "Incorrect!" + "</h3>");
         //shows correct answer
         $("#answerDiv").append("<p>" + explanations[questionNumber] + "</p>");
+        //show answer image
+        $("#answerDiv").append(images[questionNumber]);
         questionNumber++
         //resets game questions/answers after 5 seconds
         questionSelector();
