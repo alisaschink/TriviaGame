@@ -157,7 +157,7 @@ var game = function() {
       $("#results").append("<h4>" + "Correct Answers: " + correct + "</h4");
       $("#results").append("<h4>" + "Inorrect Answers: " + incorrect + "</h4>");
       $("#results").append("<h4>" + "Unanswered Questions: " + unanswered + "</h4>");
-      $("#results").append("<h4>" + "Total Score: " + (correct/10)*100 + "%" + "</h4");
+      $("#results").append("<h2>" + "Total Score: " + (correct/10)*100 + "%" + "</h2>");
       
       //game reset button
       var resetButton = $("<div>").addClass("gameButton");
