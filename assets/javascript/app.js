@@ -94,6 +94,7 @@ var game = function() {
 
     //increases unanswered counter if timer runs out
     unanswered++
+    //shows correct answer
     $("#answerDiv").append("<p>" + explanations[questionNumber] + "</p>");
 
     //tells the user that time is up.
@@ -170,6 +171,7 @@ var game = function() {
         stopTime();
         //congradulate user if correct answer guessed
         $("#questionDiv").html("<h3>" + "That's Correct!" + "</h3>");
+        //shows correct answer
         $("#answerDiv").append("<p>" + explanations[questionNumber] + "</p>");
         questionNumber++
         //resets game questions/answers after 5 seconds
@@ -179,17 +181,32 @@ var game = function() {
         incorrect++
         stopTime();
         $("#questionDiv").html("<h3>" + "Incorrect!" + "</h3>");
+        //shows correct answer
         $("#answerDiv").append("<p>" + explanations[questionNumber] + "</p>");
         questionNumber++
         //resets game questions/answers after 5 seconds
         questionSelector();
       };
 
+      //shows scores at end of game
+      if (questionNumber > 9){
+        stopTime();
+        stopQuestion();
+        $("#questionDiv").html("<h2>" + "Game Over!" + "</h2>");
+        $("#answerDiv").empty()
+        $("#results").append("<h4>" + "Correct Answers: " + correct + "</h4");
+        $("#results").append("<h4>" + "Inorrect Answers: " + incorrect + "</h4>");
+        $("#results").append("<h4>" + "Unanswered Questions: " + unanswered + "</h4>");
+        $("#results").append("<h4>" + "Total Score: " + (correct/10)*100 + "%" + "</h4");
+        $("#results").append("<button>" + "Try Again!" + "</button>");
+
+
+      }; 
+
     });
 
-//shows correct answer and image when answer given or timer runs out
 
-//shows scores at end of game
+
 
 //onclick function to restart game
 
