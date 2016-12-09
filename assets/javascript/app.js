@@ -110,6 +110,8 @@ var game = function() {
 
       //increases unanswered counter if timer runs out
       unanswered++
+      //clears answer option buttons
+      $("#answerDiv").empty();
       //shows correct answer
       $("#answerDiv").append("<p>" + explanations[questionNumber] + "</p>");
       //show answer image
@@ -213,6 +215,8 @@ var game = function() {
         stopTime();
         //states that answer is correct
         $("#questionDiv").html("<h2>" + "That's Correct!" + "</h2>");
+        //clears answer option buttons
+        $("#answerDiv").empty();
         //shows correct answer
         $("#answerDiv").append("<p>" + explanations[questionNumber] + "</p>");
         //shows answer image
@@ -226,6 +230,8 @@ var game = function() {
         stopTime();
         //states that answer is incorrect
         $("#questionDiv").html("<h2>" + "Incorrect!" + "</h2>");
+        //clears answer option buttons
+        $("#answerDiv").empty();
         //shows correct answer
         $("#answerDiv").append("<p>" + explanations[questionNumber] + "</p>");
         //shows answer image
