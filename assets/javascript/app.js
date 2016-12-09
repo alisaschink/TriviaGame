@@ -76,7 +76,7 @@ var game = function() {
   
   
   //question timer display
-  $("#timer").html("<h2>" + time + " " + "Seconds" + "</h2>");
+  $("#timer").html("<h3>" + time + " " + "Seconds" + "</h3>");
 
   //Run function to set interval
   function run() {
@@ -98,7 +98,7 @@ var game = function() {
   time--;
 
   //Shows the timer in the #timer tag.
-  $("#timer").html("<h2>" + time + " " + "Seconds" + "</h2>");
+  $("#timer").html("<h3>" + time + " " + "Seconds" + "</h3>");
 
 
   //Once time hits zero run the stopTime function.
@@ -114,7 +114,7 @@ var game = function() {
     $("#answerDiv").append(images[questionNumber]);
 
     //tells the user that time is up.
-    $("#questionDiv").html("<h3>" + "Time's up!" + "</h3>");
+    $("#questionDiv").html("<h2>" + "Time's up!" + "</h2>");
     //resets game questions/answers after 5 seconds
     questionSelector();
 
@@ -163,20 +163,21 @@ var game = function() {
 
 
   //shows selected question
-  $("#questionDiv").html("<h3>" + questions[questionNumber] + "</h3>");
+  $("#questionDiv").html("<h2>" + questions[questionNumber] + "</h2>");
   var correctAnswer = answers[questionNumber];
 
   //show selected answer options
    //creates buttons for selected answer options
   var answerArray = answerOptions[questionNumber];
  
-  var A = $("<button>").addClass("answerButton");
-  var B = $("<button>").addClass("answerButton");
-  var C = $("<button>").addClass("answerButton");
-  var D = $("<button>").addClass("answerButton");
+  var A = $("<div>").addClass("answerButton");
+  var B = $("<div>").addClass("answerButton");
+  var C = $("<div>").addClass("answerButton");
+  var D = $("<div>").addClass("answerButton");
 
   var buttons = [A, B, C, D];
   var letters = ["A", "B", "C", "D"];
+  
   //for loop to create buttons for each multiple choice answer.
   for (var i = 0; i < 4; i++) {
 
@@ -201,7 +202,7 @@ var game = function() {
         //stops the timer
         stopTime();
         //states that answer is correct
-        $("#questionDiv").html("<h3>" + "That's Correct!" + "</h3>");
+        $("#questionDiv").html("<h2>" + "That's Correct!" + "</h2>");
         //shows correct answer
         $("#answerDiv").append("<p>" + explanations[questionNumber] + "</p>");
         //show answer image
@@ -214,7 +215,7 @@ var game = function() {
         //stops the timer
         stopTime();
         //states that answer is incorrect
-        $("#questionDiv").html("<h3>" + "Incorrect!" + "</h3>");
+        $("#questionDiv").html("<h2>" + "Incorrect!" + "</h2>");
         //shows correct answer
         $("#answerDiv").append("<p>" + explanations[questionNumber] + "</p>");
         //show answer image
