@@ -57,7 +57,9 @@ var questionNumber = 0
 var questionTimer;
 
 //button to start the game
-$("#startGame").html("<button>" + "Start the Game!" + "</button>");
+var startButton = $("<div>").addClass("gameButton");
+startButton.html("<h4>" + "Start the Game!" + "</h4>");
+$("#startGame").append(startButton);
 
 //instructions for the game
 $("#instructions").html("<p>" + "You will have 30 seconds to answer each question. There are 10 questions in total." + "</p>");
@@ -79,12 +81,12 @@ var game = function() {
   $("#timer").html("<h3>" + time + " " + "Seconds" + "</h3>");
 
   //Run function to set interval
-  function run() {
+  function runTimer() {
     timeCounter = setInterval(decrement, 1000);
     };
 
   //executes timer
-  run();
+  runTimer();
 
   //sets interval to automatically reset question
   function questionSelector(){
@@ -117,10 +119,9 @@ var game = function() {
     $("#questionDiv").html("<h2>" + "Time's up!" + "</h2>");
     //resets game questions/answers after 5 seconds
     questionSelector();
-
-
     };
   };
+
 
   // function to stop timer
   function stopTime() {
@@ -136,19 +137,19 @@ var game = function() {
 
   //resets question
   function resetQuestion() {
+    stopQuestion();
     $("#questionDiv").empty();
     $("#answerDiv").empty();
     $("#timer").empty();
     time = 30;
     questionNumber++
-    stopQuestion();
     game();
     };
 
   //shows scores at end of game
     if (questionNumber > 9){
-      stopTime();
       stopQuestion();
+      stopTime();
       $("#timer").empty();
       $("#questionDiv").empty();
       $("#answerDiv").empty();
@@ -157,7 +158,11 @@ var game = function() {
       $("#results").append("<h4>" + "Inorrect Answers: " + incorrect + "</h4>");
       $("#results").append("<h4>" + "Unanswered Questions: " + unanswered + "</h4>");
       $("#results").append("<h4>" + "Total Score: " + (correct/10)*100 + "%" + "</h4");
-      $("#resetGame").append("<button>" + "Try Again!" + "</button>");
+      
+      //game reset button
+      var resetButton = $("<div>").addClass("gameButton");
+        resetButton.html("<h4>" + "Try Again!" + "</h4>");
+        $("#resetGame").append(resetButton);
 
     }; 
 
