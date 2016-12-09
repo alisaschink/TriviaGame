@@ -209,7 +209,7 @@ var game = function() {
       };
 
       //shows scores at end of game
-      if (questionNumber > 9){
+      if (questionNumber === 10){
         stopTime();
         stopQuestion();
         $("#questionDiv").html("<h2>" + "Game Over!" + "</h2>");
@@ -218,17 +218,30 @@ var game = function() {
         $("#results").append("<h4>" + "Inorrect Answers: " + incorrect + "</h4>");
         $("#results").append("<h4>" + "Unanswered Questions: " + unanswered + "</h4>");
         $("#results").append("<h4>" + "Total Score: " + (correct/10)*100 + "%" + "</h4");
-        $("#results").append("<button>" + "Try Again!" + "</button>");
+        $("#resetGame").append("<button>" + "Try Again!" + "</button>");
 
 
       }; 
 
-    });
+      //restarts game
+      $("#resetGame").on("click", function() {
+        $("#questionDiv").empty();
+        $("#answerDiv").empty();
+        $("#results").empty();
+        $("#timer").empty();
+        $("#resetGame").empty();
+        correct = 0;
+        incorrect = 0;
+        unanswered = 0;
+        questionNumber = 0;
+        time = 30;
+        stopQuestion();
+        stopTime();
+        game();
 
+      });
 
-
-
-//onclick function to restart game
+  });
 
 };
 
