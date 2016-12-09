@@ -75,7 +75,7 @@ $("#startGame").on("click", function() {
 var game = function() {
   
   
-  //question timer
+  //question timer display
   $("#timer").html("<h2>" + time + " " + "Seconds" + "</h2>");
 
   //Run function to set interval
@@ -115,7 +115,6 @@ var game = function() {
 
     //tells the user that time is up.
     $("#questionDiv").html("<h3>" + "Time's up!" + "</h3>");
-    questionNumber++
     //resets game questions/answers after 5 seconds
     questionSelector();
 
@@ -126,28 +125,42 @@ var game = function() {
   // function to stop timer
   function stopTime() {
 
-  //Clears our "counter" interval.
+  //clears "timeCounter" interval.
     clearInterval(timeCounter);
   };
 
-  //function to stop question timer
+  //clears question timer
     function stopQuestion() {
       clearInterval(questionTimer)
     }
 
-  //reset function to set interval
+  //resets question
   function resetQuestion() {
     $("#questionDiv").empty();
     $("#answerDiv").empty();
     $("#timer").empty();
     time = 30;
+    questionNumber++
     stopQuestion();
     game();
     };
 
+  //shows scores at end of game
+    if (questionNumber > 9){
+      stopTime();
+      stopQuestion();
+      $("#timer").empty();
+      $("#questionDiv").empty();
+      $("#answerDiv").empty();
+      $("#results").append("<h2>" + "Game Over!" + "</h2>");
+      $("#results").append("<h4>" + "Correct Answers: " + correct + "</h4");
+      $("#results").append("<h4>" + "Inorrect Answers: " + incorrect + "</h4>");
+      $("#results").append("<h4>" + "Unanswered Questions: " + unanswered + "</h4>");
+      $("#results").append("<h4>" + "Total Score: " + (correct/10)*100 + "%" + "</h4");
+      $("#resetGame").append("<button>" + "Try Again!" + "</button>");
 
-// //generate a random number to select question and matching answer
-  // var randomNumber = Math.floor(Math.random()*questions.length);
+    }; 
+
 
   //shows selected question
   $("#questionDiv").html("<h3>" + questions[questionNumber] + "</h3>");
@@ -183,45 +196,33 @@ var game = function() {
       console.log(buttonValue);
       //increases correct counter if buttonValue = correctAnswer
       if (buttonValue === correctAnswer) {
+        //increases the correct counter by 1
         correct++
+        //stops the timer
         stopTime();
-        //congradulate user if correct answer guessed
+        //states that answer is correct
         $("#questionDiv").html("<h3>" + "That's Correct!" + "</h3>");
         //shows correct answer
         $("#answerDiv").append("<p>" + explanations[questionNumber] + "</p>");
         //show answer image
         $("#answerDiv").append(images[questionNumber]);
-        questionNumber++
         //resets game questions/answers after 5 seconds
         questionSelector();
       } else {
-        //increases incorrect counter if userGuess != correctAnswer
+        //increases incorrect counter if userGuess does not =  correctAnswer
         incorrect++
+        //stops the timer
         stopTime();
+        //states that answer is incorrect
         $("#questionDiv").html("<h3>" + "Incorrect!" + "</h3>");
         //shows correct answer
         $("#answerDiv").append("<p>" + explanations[questionNumber] + "</p>");
         //show answer image
         $("#answerDiv").append(images[questionNumber]);
-        questionNumber++
         //resets game questions/answers after 5 seconds
         questionSelector();
       };
 
-      //shows scores at end of game
-      if (questionNumber === 10){
-        stopTime();
-        stopQuestion();
-        $("#questionDiv").html("<h2>" + "Game Over!" + "</h2>");
-        $("#answerDiv").empty()
-        $("#results").append("<h4>" + "Correct Answers: " + correct + "</h4");
-        $("#results").append("<h4>" + "Inorrect Answers: " + incorrect + "</h4>");
-        $("#results").append("<h4>" + "Unanswered Questions: " + unanswered + "</h4>");
-        $("#results").append("<h4>" + "Total Score: " + (correct/10)*100 + "%" + "</h4");
-        $("#resetGame").append("<button>" + "Try Again!" + "</button>");
-
-
-      }; 
 
       //restarts game
       $("#resetGame").on("click", function() {
