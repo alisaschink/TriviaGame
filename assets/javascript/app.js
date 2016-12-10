@@ -34,16 +34,16 @@ var explanations = ["Correct Answer: D. Carrie was released in 1976.",
               "Correct Answer: D. The character of Jason Voorhees has the highest body count with 158 total kills throughout his movies.", ""];
 
 //images for when answer is shown
-var img1 = $("<img>").attr("src", "assets/images/carrie.jpg");
-var img2 = $("<img>").attr("src", "assets/images/peeping_tom.jpg");
-var img3 = $("<img>").attr("src", "assets/images/regan.jpg");
-var img4 = $("<img>").attr("src", "assets/images/scream.jpg");
-var img5 = $("<img>").attr("src", "assets/images/rosemarys_baby.jpg");
-var img6 = $("<img>").attr("src", "assets/images/jasonX.jpg");
-var img7 = $("<img>").attr("src", "assets/images/manhunter.jpg");
-var img8 = $("<img>").attr("src", "assets/images/laurie.jpg");
-var img9 = $("<img>").attr("src", "assets/images/buffalo_bill.jpg");
-var img10 = $("<img>").attr("src", "assets/images/jason.jpg");
+var img1 = $("<img>").attr("src", "http://i.giphy.com/EUt19CBS6Xife.gif");
+var img2 = $("<img>").attr("src", "http://i.giphy.com/9WRysq2MAoO9a.gif");
+var img3 = $("<img>").attr("src", "http://i.giphy.com/xT9KVHs6I3EfDKnVte.gif");
+var img4 = $("<img>").attr("src", "http://i.giphy.com/7uBx4nLh2M6d2.gif");
+var img5 = $("<img>").attr("src", "http://i.giphy.com/3otPoS14NUH8LAbzsA.gif");
+var img6 = $("<img>").attr("src", "http://i.giphy.com/DnXrUTeOgN7zO.gif");
+var img7 = $("<img>").attr("src", "http://i.giphy.com/h42PUT4UUFGeY.gif");
+var img8 = $("<img>").attr("src", "http://i.giphy.com/N6nR8ToQ3FKCI.gif");
+var img9 = $("<img>").attr("src", "http://i.giphy.com/rfAxGG2fVxoPu.gif");
+var img10 = $("<img>").attr("src", "http://i.giphy.com/LiJrURV5tIyNa.gif");
 
 var images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, ""];
 
