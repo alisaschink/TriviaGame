@@ -36,11 +36,11 @@ var explanations = ["Correct Answer: D. Carrie was released in 1976.",
 //images for when answer is shown
 var img1 = $("<img>").attr("src", "http://i.giphy.com/EUt19CBS6Xife.gif");
 var img2 = $("<img>").attr("src", "http://i.giphy.com/9WRysq2MAoO9a.gif");
-var img3 = $("<img>").attr("src", "http://i.giphy.com/xT9KVHs6I3EfDKnVte.gif");
+var img3 = $("<img>").attr("src", "http://i.giphy.com/3otPoJhe5AZrhllEeQ.gif");
 var img4 = $("<img>").attr("src", "http://i.giphy.com/7uBx4nLh2M6d2.gif");
 var img5 = $("<img>").attr("src", "http://i.giphy.com/3otPoS14NUH8LAbzsA.gif");
 var img6 = $("<img>").attr("src", "http://i.giphy.com/DnXrUTeOgN7zO.gif");
-var img7 = $("<img>").attr("src", "http://i.giphy.com/h42PUT4UUFGeY.gif");
+var img7 = $("<img>").attr("src", "http://i.giphy.com/CSIzl30ynrub6.gif");
 var img8 = $("<img>").attr("src", "http://i.giphy.com/N6nR8ToQ3FKCI.gif");
 var img9 = $("<img>").attr("src", "http://i.giphy.com/rfAxGG2fVxoPu.gif");
 var img10 = $("<img>").attr("src", "http://i.giphy.com/LiJrURV5tIyNa.gif");
